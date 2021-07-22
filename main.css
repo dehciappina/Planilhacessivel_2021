@@ -1,13 +1,15 @@
 :root {
     --c01:#f8f8ff;
-    --c02:#112222;
-    --c03:#51D69D;
+    --c02: #085045;
+    --c03:#38bd7c;
     --c04: #e4f7ef;
     --c05:#48BD8A;
+    --c06:#d5f0e3;
 }
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +28,9 @@ p, h1, h2, h3, h4, h5, h6 {
 html, body {
     margin:0;
 }
+
+.green_fill{fill:var(--c03)}
+.green_stroke{stroke:var(--c03)}
 
 #loading {
     position: fixed;
@@ -108,13 +113,48 @@ section article {
     margin: 0 2rem;
 }
 
-#sec01 {
+#sec01, #sec03 {
     width: 100%;
-    padding: 7rem 0 3rem 0;
+    padding: 6rem 0 3rem 0;
 } #sec02 {
     background: var(--c01);
-    height: 30rem;
     padding: 1rem 0;
+    color: var(--c03);
+} #sec02 article {
+    padding: 4rem 0;
+    text-align: center;
+} #sec02 svg {
+    width: 24%;
+    display: block;
+    margin: 0 auto;
+} #sec02 h2 {
+    font-size: clamp(1.5rem, calc(90vw - 19rem), 1.6rem);
+    margin: 1.5rem 0 0.6rem 0;
+} #sec02 p {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+    line-height: clamp(1rem, 7vw, 1.7rem);
+    margin: 0.8rem 0 0 0;
+} #sec02 a {
+    color: var(--c03);
+    font-weight: 700;
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
+    margin: 0.9rem 0 0 0;
+    background: var(--c04);
+    padding: 0.8rem 0;
+    display: block;
+} #sec03 h2 {
+    font-size: clamp(1.8rem, 8.3vw, 2.6rem);
+    margin: 1rem 0;
+} #sec03 h3 {
+    font-size: clamp(0.8rem, 5vw, 2rem);
+    margin: 1rem 0;
+} #sec03 a {
+    padding: 1rem 1.5rem;
+    background: rgba(0,0,0,0.15);
+    display: block;
+    color: var(--c01);
+    font-weight: 900;
+    font-size: 1.1rem;
 }
 
 .flex_01 {
@@ -130,37 +170,60 @@ h1 {
 }
 
 .intro_bullet {
-    font-size: clamp(1.2rem, 4vw, 2rem);
-    line-height: clamp(1.4rem, 6vw, 2rem);
-    font-weight: 600;
+    position: relative;
+    font-weight: 900;
     background: var(--c01);
-    color: var(--c05);
-    padding: 1.2rem 1.5rem;
+    color: var(--c03);
+    padding: 1.2rem 0.6rem 1.2rem 1.2rem;
     margin: 0 0 1rem 0;
     display: flex;
+    align-items: center;
+    color: var(--c01);
+    background: linear-gradient(15deg, white -50%, rgba(255,255,255,0.15) 40%);
+    border: 2px solid var(--c01);
+    font-weight: 600;
+    backdrop-filter: blur(2px);
 } .intro_bullet svg {
-    width: 24%;
-    margin: 0 1.2rem 0 0;
+    width: clamp(3.7rem, 15vw, 8rem);
+    margin: 0 5vw 0 0;
+    overflow: visible;
 } .intro_bullet p {
+    font-size: clamp(0.8rem, 4.8vw, 2rem);
+    line-height: clamp(1.3rem, 7vw, 2rem);
     width: 70%;
 }
 
+.arrow {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    transform: rotate(-45deg);
+    border-right: 0.2rem solid;
+    border-bottom: 0.2rem solid;
+}
 .divisor01 {
     margin: 0 1.5rem;
     border-bottom: 3px solid var(--c01);
-}
-
-.divisor02 {
+} .divisor02 {
     width: 2rem;
     border-top: 0.4rem solid var(--c01);
     margin: 1.5rem 0;
+} .divisor03 {
+    width: 24%;
+    border-top: 0.2rem solid var(--c06);
+    margin: 0 auto;
 }
+
+
+
 
 #hamburger {
     position: fixed;
     right: 0;
     top: 0;
-    padding: 1.7rem 1.7rem 1rem 1rem;
+    padding: 1.3rem 1.7rem 1rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,8 +238,7 @@ h1 {
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
-    border: 0.3rem solid var(--c03);
-    box-shadow: 0 0 2rem var(--c03);
+    box-shadow: 0 0 1.6rem -0.1rem var(--c03);
 } #hamburger > div > div {
     width: 0.4rem;
     height: 0.4rem;
@@ -206,15 +268,13 @@ h1 {
     padding: 7rem 0 0 0;
 }
 
-
-@keyframes cells {
+.whitefill {
+    animation: turn 5s linear infinite;
+} @keyframes turn {
     0% {
-        fill:white;
-    } 20% {
-        fill:#51D69D;
-    } 40% {
-        fill:white;
+        transform: rotate(0deg);
     } 100% {
-        fill:white;
+        transform: rotate(360deg);
     }
 }
+
