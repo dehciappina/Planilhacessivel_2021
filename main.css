@@ -1,10 +1,11 @@
 :root {
     --c01:#fff;
     --c02: #121c1a;
-    --c03:#00a064;
+    --c03:#0ead73;
     --c04: #e4f7ef;
     --c05:#00a064;
-    --c06:#d5f0e3;
+    --c06:#eaf7f1;
+    --c07: #666666;
 }
 
 html {
@@ -88,10 +89,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     z-index: 998;
+    height: 6rem;
 } header a {
     text-decoration: none;
     color: var(--c05);
@@ -99,7 +101,7 @@ header {
     margin: 0 1.5rem;
     display: inline-block;
     font-weight: 500;
-    font-size: clamp(1.1rem, 5vw, 1.3rem);
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
 } header img {
     height: 3rem;
 } header .destaque {
@@ -125,7 +127,8 @@ section article {
 }
 
 #sec01 {
-    padding: 6rem 0 2rem 0;
+    padding: clamp(2rem, 26vw, 8rem) 0 2rem 0;
+    position: relative;
 } #sec04 {
     padding: 3rem 0 3rem 0;
 } #sec04 {
@@ -136,56 +139,70 @@ section article {
     padding: 5rem 0;
 }
 
-.a1.servicos  {
-    border: none;
-    background-image: url(assets/pattern01.svg);
-    background-size: 0.5rem 0.5rem;
-    background-color: var(--c02);
-    font-weight: 100;
-}
-
 #sec01, #sec03 {
     width: 100%;
 } #sec02 {
     background: var(--c01);
-    padding: 1rem 0;
+    padding: 8vw 0;
     color: var(--c03);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 } #sec02 article {
     padding: 4rem 0;
+    width: clamp(20rem, 65vw, 22rem);
     text-align: center;
+    position: relative;
 } #sec02 svg {
-    width: clamp(5rem, 20vw, 9rem);
+    width: clamp(5rem, 20vw, 6rem);
+    height: clamp(5rem, 20vw, 6rem);
     display: block;
     margin: 0 auto;
 } #sec02 h2 {
-    font-size: clamp(2rem, calc(90vw - 19rem), 2.2rem);
+    font-size: clamp(1.7rem, calc(90vw - 19rem), 2rem);
     margin: 1.5rem 0 0.8rem 0;
-} #sec04 h2 {
-    font-size: clamp(2rem, 12vw , 3.2rem);
+}#sec04 h2  {
+    font-size: clamp(1.2rem, 10vw, 3.4rem);
     margin: 1.5rem 0 0.8rem 0;
+    color: var(--c03);
+    font-weight: 900;
 }  #sec02 p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    line-height: clamp(1rem, 7vw, 1.8rem);
+    font-size: clamp(1rem, 4vw, 1rem);
+    line-height: clamp(1rem, 7vw, 1.5rem);
     margin: 0 0 0.8rem 0;
+    color: var(--c07);
+} #sec02 p strong {
+    color: var(--c03);
 } .a2 {
     color: var(--c03);
     font-weight: 700;
-    font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+    font-size: clamp(0.9rem, 1.1vw, 0.96rem);
     margin: 0.7rem auto 0;
-    padding: clamp(0.4rem, 1vw, 1rem) 0;
+    padding: 0.5rem 0;
     display: block;
-    border: 2px solid var(--c06);
     font-family: 'Merriweather', serif;
-    width: clamp(15rem, 72vw, 20rem);
-    background: white;
+    width: clamp(15rem, 72vw, 18rem);
+    position: relative;
+    background-color: #eafef3;
+    transition: background-color 0.2s ease;
+} .external01::before {
+    content: url(assets/external.svg);
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-62%);
 } #sec03 h2 {
     font-size: clamp(2rem, calc(40vw - 7rem), 2.7rem);
     margin: 1rem 0;
-} #sec03 h3, #sec04 h3 {
-    font-size: clamp(1rem, calc(7vw - 0.6rem), 1.3rem);
-    line-height: clamp(1.7rem, calc(9vw - 0.4rem), 2rem);
+} #sec03 h3, #sec04 #flex02 p {
+    font-size: clamp(1rem, calc(7vw - 0.6rem), 1rem);
+    line-height: clamp(1.7rem, calc(9vw - 0.4rem), 1.6rem);
     margin: 1rem 0;
     font-weight: 100;
+} .a2:hover {
+    background-color:var(--c01);
 }
 
 .flex_01 {
@@ -194,10 +211,20 @@ section article {
 }
 
 h1 {
-    font-size: clamp(1.2rem, 8vw, 3rem);
-    line-height: clamp(1.2rem, 10vw, 3.8rem);
-    margin: 0 auto 1rem auto;
+    font-size: clamp(1.2rem, 8vw, 3.2rem);
+    line-height: clamp(1.2rem, 10vw, 4rem);
     font-weight: 900;
+    max-width: 35rem;
+}
+
+.bt_flex {
+    display: flex;
+    align-items: self-end;
+    flex-flow: row wrap;
+} .bt_flex > div {
+    width: 100%;
+    max-width: 20rem;
+    margin-right: 1rem;
 }
 
 .a1 {
@@ -214,6 +241,7 @@ h1 {
     font-weight: 500;
     font-size: clamp(0.8rem, calc(8vw - 0.3rem), 2rem);
     border-bottom: 0.4rem solid rgba(255,255,255,0.2);
+    box-sizing: border-box;
 } .a1 svg {
     width: clamp(3rem, calc(22vw - 2rem), 3.6rem);
     margin: 0 clamp(1rem, 5vw, 1.5rem) 0 0;
@@ -223,7 +251,44 @@ h1 {
     line-height: clamp(1.3rem, 7vw, 1.6rem);
     width: 70%;
     position: relative;
+} .a1.servicos  {
+    border: none;
+    background-image: url(assets/pattern01.svg);
+    background-size: 0.5rem 0.5rem;
+    background-color: var(--c02);
+    font-weight: 100;
+    max-width: 20rem;
 }
+
+#show_planilhas, #show_quotes {
+    display: flex;
+    overflow: hidden;
+    margin: 4vw auto;
+} #show_planilhas {
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+    margin: 0 0 1rem 0;
+    background: rgba(0,0,0,0.05);
+}
+
+#show_planilhas a, #show_quotes .quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: none;
+    font-size: clamp(0.9rem, calc(6vw - 0.5rem), 1rem);
+    letter-spacing: 0.04rem;
+    animation: planilhas 30s cubic-bezier(0.71, 0.09, 0, 1.04) infinite alternate;
+    width: 100%;
+    padding: 1rem 0;
+}
+.name {
+    position: absolute;
+    bottom: -1rem;
+    right: 3rem;
+}
+
 
 .arrow {
     position: absolute;
@@ -244,7 +309,7 @@ h1 {
 } .divisor03 {
     width: 24%;
     border-top: 0.2rem solid var(--c06);
-    margin: 0 auto;
+    margin: 0 30vw;
 } .divisor04 {
     height: 0.9rem;
 }
@@ -285,7 +350,7 @@ h1 {
 }
 
 #hamb_ctnr {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     background: rgb(255 255 255 / 90%);
     backdrop-filter: blur(2px);
@@ -311,9 +376,7 @@ h1 {
     }
 }
 
-#show_planilhas {
-    background: rgba(0,0,0,0.05);
-} #show_planilhas a {
+#show_planilhas a {
     text-align: center;
     color: var(--c01);
     font-weight: 700;
@@ -348,6 +411,8 @@ h1 {
 }.quote p {
     margin: 0 3rem;
     position: relative;
+    font-size: clamp(1.1rem, 1.5vw, 2rem);
+    line-height: clamp(1.7rem, 2.3vw, 2.5rem);
 }
 
 #a_intro {
@@ -363,31 +428,6 @@ h1 {
 
 }
 
-#show_planilhas, #show_quotes {
-    display: flex;
-    width: 100%;
-    margin: 0 auto 1rem auto;
-} #show_planilhas {
-    backdrop-filter: blur(2px);
-    overflow: hidden;
-}
-
-#show_planilhas a, #show_quotes .quote {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    flex: none;
-    font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1.1rem);
-    animation: planilhas 30s cubic-bezier(0.71, 0.09, 0, 1.04) infinite alternate;
-    width: 100%;
-    padding: 1rem 0;
-}
-.name {
-    position: absolute;
-    bottom: -1rem;
-    right: 3rem;
-}
 
 
 
@@ -402,11 +442,13 @@ form {
     background-color: rgba(255,255,255,0.05);
     margin: 0.6rem 0 1rem 0;
     color: var(--c01);
-    font-size: clamp(0.9rem, calc(6vw - 0.4rem), 2rem);
+    font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
 } label {
-    font-size: clamp(0.9rem, calc(6vw - 0.4rem), 2rem);
+    font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
 } textarea {
-
+    min-width: 100%;
+    box-sizing: border-box;
+    min-height: 10rem;
 } #submit {
     font-size: 1.2rem;
     padding: 0.8rem 0;
@@ -422,4 +464,223 @@ form {
 input:focus, textarea:focus {
     outline:none;
     background-color: rgba(255,255,255,0.1);
+}
+
+#sec02 article a:first-of-type {
+    margin-top: 1.2rem;
+}
+
+.external_link {
+    position: absolute;
+    left: 0.3rem;
+    bottom: 0.3rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--c03);
+    pointer-events: none;
+}
+
+
+footer {
+    padding: 0.6rem 0;
+    font-family: 'Merriweather Sans';
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+} footer span {
+    margin: 0 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:120vh) {
+
+
+    section article {
+        margin:0;
+    }
+
+    #sec01, #sec03 {
+        margin: 0 auto 0 6vw;
+    }
+
+    #logo {
+        left:6vw;
+    }
+
+
+    #planilha {
+        position: absolute;
+        right: 0;
+        top: 4rem;
+        bottom: -2rem;
+        width: clamp(0rem, calc(102vw - 44rem), 53rem);
+        background-image: url(assets/print.jpg);
+        background-size: cover;
+        box-shadow: 1rem 0 5rem -2rem black;
+        transform: perspective(1700px) rotate3d(0, -1, 0, 15deg);
+    } #show_planilhas:hover {
+        background: rgba(0,0,0,0.1);
+        transition: background-color 0.15s ease;
+    }
+
+    
+
+    #flex02 {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        margin: 1rem 0;
+    } #flex02 > div {
+        width: clamp(20rem, 40vw, 40rem);
+    } #flex02 > div:first-child {
+        width: clamp(24rem, 45vw, 50rem);
+        margin: 0 6vw;
+    } #flex02 > div:last-child {
+    }
+
+    form {
+        width: clamp(20rem, 30vw, 30rem);
+    }
+
+    #show_quotes {
+        width: 41%;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:1000px) {
+
+
+    #hamburger {
+        display: none;
+    }
+
+    #hamb_ctnr {
+        transform: none;
+        height: 4rem;
+        padding: 1.4rem 0;
+        background: none;
+        color: var(--c01);
+        max-width: unset;
+        width: unset;
+        backdrop-filter: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: start;
+        position: relative;
+        left: 11vw;
+    }
+
+    header a {
+        color:var(--c01);
+    } header .destaque {
+        background:none;
+    }
+
+
+    .divisor01 {
+        display: none;
+    } .divisor03 {
+        width: 0;
+        height: 16rem;
+        border-top: none;
+        border-right: 0.2rem solid #eaf7f1;
+        margin: 0;
+        position: relative;
+        top: 8rem;
+        margin: 0 3vw;
+    }
+    #planilhas_prontas {
+        transition: background-color 0.15s ease;
+    } #planilhas_prontas:hover {
+        background-color:rgba(255,255,255,0.2);
+    }
+
+    #sec04 h2 {
+    }
 }

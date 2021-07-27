@@ -41,6 +41,9 @@ document.body.onscroll = function() {
     if(showing == true) {
         toggleHamb()
     }
+    
+
+    document.querySelector('#planilha').style.transform = "perspective(1700px) rotate3d(0, -1, 0, " + (15 + window.pageYOffset/80) + "deg)"
 }
 
 document.onreadystatechange = function () {
@@ -64,3 +67,4 @@ document.onreadystatechange = function () {
         
     }
   }
+
