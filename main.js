@@ -40,8 +40,47 @@ hamburger.addEventListener('click', function() {
 document.body.onscroll = function() {
     if(showing == true) {
         toggleHamb()
+    } else if(showingPoliticas == true) {
+        togglePoliticas()
     }
 }
+
+
+
+
+
+
+
+const politicasWindow = document.querySelector('#politicas_venda')
+
+const politicaBt = document.querySelector('#politicas')
+
+let showingPoliticas = false;
+
+function togglePoliticas() {
+    if(showingPoliticas == false) {
+        showingPoliticas = true;
+
+        politicasWindow.style.transform = 'translateY(0)';
+        politicasWindow.style.opacity = 1;
+        politicasWindow.style.visibility = 'visible'
+    } else {
+
+        politicasWindow.style.transform = 'translateY(1rem)';
+        politicasWindow.style.opacity = 0;
+        politicasWindow.style.visibility = 'hidden'
+        showingPoliticas = false;
+    }
+}
+
+
+politicaBt.addEventListener('click', function() {
+    togglePoliticas()
+})
+
+
+
+
 
 document.onreadystatechange = function () {
     if (document.readyState == "interactive" || document.readyState == "complete") {
