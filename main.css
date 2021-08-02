@@ -1,7 +1,7 @@
 :root {
     --c01:#fff;
-    --c02: #121c1a;
-    --c03:#0ead73;
+    --c02: #003320;
+    --c03:#00a76a;
     --c04: #e4f7ef;
     --c05:#00a064;
     --c06:#eaf7f1;
@@ -17,7 +17,7 @@ body {
     font-family: 'Merriweather Sans', sans-serif;
     background: var(--c03);
     color: var(--c01);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -26,7 +26,7 @@ p, h1, h2, h3, h4, h5, h6 {
     text-decoration: unset;
 }
 
-h1, h2, #show_planilhas a {
+h1, h2, .sub_button {
     font-family: 'Merriweather', serif;
 }
 
@@ -50,13 +50,13 @@ html, body {
     align-items: center;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 } #loading svg {
     width: clamp(12rem, 25vw, 20rem);
     overflow: visible;
 } #loading svg rect {
     transform-origin: center;
-    animation: load 6s ease infinite;
+    animation: load 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform:scale(0.9);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 } @keyframes load {
@@ -130,11 +130,7 @@ section article {
     padding: clamp(2rem, 26vw, 8rem) 0 2rem 0;
     position: relative;
 } #sec04 {
-    padding: 3rem 0 3rem 0;
-} #sec04 {
-    background-image: url(assets/pattern01.svg);
-    background-size: 0.5rem 0.5rem;
-    background-color: var(--c02);
+    padding: 4rem 0;
 } #sec03 {
     padding: 5rem 0;
 }
@@ -143,7 +139,7 @@ section article {
     width: 100%;
 } #sec02 {
     background: var(--c01);
-    padding: 8vw 0;
+    padding: 4vw 0;
     color: var(--c03);
     display: flex;
     flex-flow: row wrap;
@@ -163,46 +159,48 @@ section article {
     margin: 1.5rem 0 0.8rem 0;
 }#sec04 h2  {
     font-size: clamp(1.2rem, 10vw, 3.4rem);
-    margin: 1.5rem 0 0.8rem 0;
-    color: var(--c03);
+    margin: 0 0 0.8rem 0;
+    color: var(--c01);
     font-weight: 900;
 }  #sec02 p {
     font-size: clamp(1rem, 4vw, 1rem);
     line-height: clamp(1rem, 7vw, 1.5rem);
     margin: 0 0 0.8rem 0;
     color: var(--c07);
-} #sec02 p strong {
+} #sec02 strong, #sec02 b, #sec02 strong a {
     color: var(--c03);
+} #sec02 strong a {
+    text-decoration: underline;
 } .a2 {
     color: var(--c03);
     font-weight: 700;
-    font-size: clamp(0.9rem, 1.1vw, 0.96rem);
+    font-size: clamp(0.9rem, 4vw, 0.95rem);
     margin: 0.7rem auto 0;
-    padding: 0.5rem 0;
+    padding: 0.6rem 0;
     display: block;
     font-family: 'Merriweather', serif;
-    width: clamp(15rem, 72vw, 18rem);
+    width: clamp(15rem, 84vw, 20rem);
     position: relative;
     background-color: #eafef3;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 } .external01::before {
     content: url(assets/external.svg);
     position: absolute;
     width: 0.7rem;
     height: 0.7rem;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-62%);
+    top: 0.5rem;
+    left: 0.8rem;
 } #sec03 h2 {
     font-size: clamp(2rem, calc(40vw - 7rem), 2.7rem);
     margin: 1rem 0;
 } #sec03 h3, #sec04 #flex02 p {
-    font-size: clamp(1rem, calc(7vw - 0.6rem), 1rem);
-    line-height: clamp(1.7rem, calc(9vw - 0.4rem), 1.6rem);
+    font-size: 1rem;
+    line-height: 1.5rem;
     margin: 1rem 0;
     font-weight: 100;
 } .a2:hover {
     background-color:var(--c01);
+    transition: background-color 0.05s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flex_01 {
@@ -223,12 +221,13 @@ h1 {
     flex-flow: row wrap;
 } .bt_flex > div {
     width: 100%;
-    max-width: 20rem;
-    margin-right: 1rem;
+}  .bt_flex > div:first-child {
+    margin-right: 2vw;
 }
 
 .a1 {
     position: relative;
+    width: 100%;
     font-weight: 900;
     background: var(--c01);
     color: var(--c03);
@@ -242,46 +241,47 @@ h1 {
     font-size: clamp(0.8rem, calc(8vw - 0.3rem), 2rem);
     border-bottom: 0.4rem solid rgba(255,255,255,0.2);
     box-sizing: border-box;
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 } .a1 svg {
     width: clamp(3rem, calc(22vw - 2rem), 3.6rem);
     margin: 0 clamp(1rem, 5vw, 1.5rem) 0 0;
     overflow: visible;
 } .a1 p {
-    font-size: clamp(0.9rem, calc(9vw - 1rem), 1.1rem);
-    line-height: clamp(1.3rem, 7vw, 1.6rem);
+    font-size: clamp(0.9rem, calc(6.2vw - 0.4rem), 1.1rem);
+    line-height: clamp(1.3rem, 7vw, 1.5rem);
     width: 70%;
     position: relative;
 } .a1.servicos  {
-    border: none;
-    background-image: url(assets/pattern01.svg);
-    background-size: 0.5rem 0.5rem;
-    background-color: var(--c02);
     font-weight: 100;
-    max-width: 20rem;
-}
-
-#show_planilhas, #show_quotes {
+} .a1:hover {
+    background: rgba(255,255,255,0.2);
+    transition: background-color 0s cubic-bezier(0.4, 0, 0.2, 1);
+} .sub_button:hover {
+    background: rgba(255,255,255,0.2);
+    transition: background-color 0s cubic-bezier(0.4, 0, 0.2, 1);
+} .sub_button {
     display: flex;
     overflow: hidden;
-    margin: 4vw auto;
-} #show_planilhas {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(2px);
-    overflow: hidden;
     margin: 0 0 1rem 0;
     background: rgba(0,0,0,0.05);
 }
 
-#show_planilhas a, #show_quotes .quote {
+.sub_button a {
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     flex: none;
-    font-size: clamp(0.9rem, calc(6vw - 0.5rem), 1rem);
+    font-size: 0.9rem;
     letter-spacing: 0.04rem;
-    animation: planilhas 30s cubic-bezier(0.71, 0.09, 0, 1.04) infinite alternate;
     width: 100%;
     padding: 1rem 0;
+}
+
+#show_planilhas a, #show_quotes .quote {
+    animation: planilhas 30s cubic-bezier(0.71, 0.09, 0, 1.04) infinite alternate;
 }
 .name {
     position: absolute;
@@ -321,17 +321,17 @@ h1 {
     position: fixed;
     right: 0;
     top: 0;
-    padding: 1.3rem 1.7rem 1rem 1rem;
+    padding: 1.4rem 1.7rem 1.1rem 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
 } #hamburger > div {
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 50%;
     background-color: var(--c01);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,7 +342,7 @@ h1 {
     background-color: var(--c03);
     border-radius: 50%;
     position: absolute;
-    transition: 0.3s ease;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 } #hamburger > div > div:nth-child(1) {
     transform: translateX(-0.7rem);
 } #hamburger > div > div:nth-child(3) {
@@ -376,7 +376,7 @@ h1 {
     }
 }
 
-#show_planilhas a {
+.sub_button a {
     text-align: center;
     color: var(--c01);
     font-weight: 700;
@@ -438,27 +438,35 @@ form {
     margin: 3rem 0;
 } input, textarea {
     padding: 0.8rem 1rem;
-    border: none;
-    background-color: rgba(255,255,255,0.05);
-    margin: 0.6rem 0 1rem 0;
+    background: none;
+    margin: 0.3rem 0 1rem 0;
     color: var(--c01);
     font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
+    backdrop-filter: blur(3px);
+    border: 0.15rem solid var(--c01);
+    border-radius: 0.2rem;
 } label {
     font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
+    display: flex;
+    flex-flow: column;
 } textarea {
     min-width: 100%;
     box-sizing: border-box;
-    min-height: 10rem;
+    min-height: 5rem;
+    max-width: 100%;
+    max-height: 30rem;
+    height: 10rem;
 } #submit {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.8rem 0;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 900;
     letter-spacing: 2px;
-    background: var(--c05);
+    background: var(--c01);
     border: none;
-    color: var(--c01);
+    color: var(--c03);
     margin: 0.6rem 0 0 0;
+    cursor: pointer;
 }
 
 input:focus, textarea:focus {
@@ -472,24 +480,30 @@ input:focus, textarea:focus {
 
 .external_link {
     position: absolute;
-    left: 0.3rem;
-    bottom: 0.3rem;
-    width: 0.7rem;
-    height: 0.7rem;
+    left: 0;
+    bottom: 0;
+    width: 0.6rem;
+    height: 0.6rem;
     background: var(--c03);
     pointer-events: none;
+    padding: 0.3rem;
 }
 
 
 footer {
-    padding: 0.6rem 0;
+    padding: 0.4rem 0;
     font-family: 'Merriweather Sans';
     text-align: center;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-} footer span {
-    margin: 0 1rem;
+    justify-content: space-evenly;
+    background-color: var(--c01);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2rem;
+    color: var(--c03);
+    font-weight: 900;
 }
 
 
@@ -544,7 +558,7 @@ footer {
 
 
 
-@media (min-width:120vh) {
+@media (min-width:100vh) {
 
 
     section article {
@@ -552,53 +566,72 @@ footer {
     }
 
     #sec01, #sec03 {
-        margin: 0 auto 0 6vw;
+        margin: 0 auto 0 8vw;
     }
 
     #logo {
-        left:6vw;
+        left: 8vw;
     }
-
 
     #planilha {
         position: absolute;
         right: 0;
         top: 4rem;
-        bottom: -2rem;
-        width: clamp(0rem, calc(102vw - 44rem), 53rem);
+        bottom: -1rem;
+        width: clamp(0rem, calc(104vw - 44rem), 70rem);
         background-image: url(assets/print.jpg);
         background-size: cover;
         box-shadow: 1rem 0 5rem -2rem black;
-        transform: perspective(1700px) rotate3d(0, -1, 0, 15deg);
-    } #show_planilhas:hover {
-        background: rgba(0,0,0,0.1);
-        transition: background-color 0.15s ease;
+        transform: perspective(500px) rotate3d(0, -1, 0, 16deg);
     }
-
-    
 
     #flex02 {
         display: flex;
         flex-flow: row wrap;
-        align-items: center;
+        /* align-items: center; */
         margin: 1rem 0;
     } #flex02 > div {
         width: clamp(20rem, 40vw, 40rem);
     } #flex02 > div:first-child {
-        width: clamp(24rem, 45vw, 50rem);
-        margin: 0 6vw;
-    } #flex02 > div:last-child {
+        width: clamp(24rem, 41vw, 45rem);
+        margin: 0 8vw;
     }
 
     form {
         width: clamp(20rem, 30vw, 30rem);
+        margin: 0;
     }
 
     #show_quotes {
         width: 41%;
     }
-    
+
+    .bt_flex > div, .a1.servicos {
+        max-width: 19rem;
+    }
+
+    #hamburger > div {
+        transition: none;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -642,8 +675,8 @@ footer {
 
     #hamb_ctnr {
         transform: none;
-        height: 4rem;
-        padding: 1.4rem 0;
+        height: 100%;
+        padding: 0;
         background: none;
         color: var(--c01);
         max-width: unset;
@@ -653,13 +686,24 @@ footer {
         flex-flow: row nowrap;
         justify-content: start;
         position: relative;
-        left: 11vw;
+        left: 12vw;
+        display: flex;
+        align-items: center;
+        backdrop-filter: blur(2px);
     }
 
     header a {
-        color:var(--c01);
+        color: var(--c01);
+        padding: 0 2rem;
+        margin: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     } header .destaque {
         background:none;
+    } header a:hover {
+        background-color:rgba(255,255,255,0.15);
     }
 
 
@@ -667,20 +711,24 @@ footer {
         display: none;
     } .divisor03 {
         width: 0;
-        height: 16rem;
+        height: 12rem;
         border-top: none;
         border-right: 0.2rem solid #eaf7f1;
         margin: 0;
         position: relative;
-        top: 8rem;
-        margin: 0 3vw;
-    }
-    #planilhas_prontas {
-        transition: background-color 0.15s ease;
-    } #planilhas_prontas:hover {
-        background-color:rgba(255,255,255,0.2);
+        top: 7rem;
+        margin: 0 clamp(2rem, calc(8vw - 4rem), 10rem);
     }
 
     #sec04 h2 {
     }
 }
+
+
+
+
+
+
+
+
+
