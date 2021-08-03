@@ -535,9 +535,17 @@ footer {
 
 }
 
+.ndsajndsa9adsnadsj, .nsdaosnas9uadsn, .st2 {
+    animation: stroke01 0.5s linear infinite;
+}
 
-
-
+@keyframes stroke01 {
+    0% {
+        stroke-dashoffset:0;
+    } 100% {
+        stroke-dashoffset:-10px;
+    }
+}
 
 
 
