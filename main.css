@@ -8,8 +8,23 @@
     --c07: #666666;
 }
 
+.logo_intro {
+    transform: scale(0.9);
+    transform-origin: center;
+    animation: intro_loading 0.9s linear forwards;
+    opacity: 0;
+} @keyframes intro_loading {
+    0% {
+        opacity: 0;
+        /* transform: scale(0.9); */
+    } 100% {
+        opacity: 1;
+        /* transform: scale(1); */
+    }
+}
+
 html {
-    font-size: 16px;
+    font-size: clamp(16px, 1vw, 20px);
     scroll-behavior: smooth;
 }
 
@@ -22,6 +37,7 @@ body {
 
 p, h1, h2, h3, h4, h5, h6 {
     margin:0;
+    cursor: default;
 } a {
     text-decoration: unset;
 }
@@ -44,7 +60,7 @@ html, body {
     bottom:0;
     left:0;
     z-index: 999;
-    background-color:var(--c01);
+    background: var(--c03) linear-gradient(30deg, var(--c03), #48e6a4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +68,7 @@ html, body {
     visibility: visible;
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 } #loading svg {
-    width: clamp(12rem, 25vw, 20rem);
+    width: clamp(4rem, 20vw, 6rem);
     overflow: visible;
 } #loading svg rect {
     transform-origin: center;
@@ -101,7 +117,7 @@ header {
     margin: 0 1.5rem;
     display: inline-block;
     font-weight: 500;
-    font-size: clamp(0.9rem, 5vw, 1.1rem);
+    font-size: clamp(1rem, 1vw, 1.1rem);
 } header img {
     height: 3rem;
 } header .destaque {
@@ -127,11 +143,9 @@ section article {
 }
 
 #sec01 {
-    padding: clamp(2rem, 26vw, 8rem) 0 2rem 0;
+    padding: clamp(2rem, 26vw, 8rem) 0 3rem 0;
     position: relative;
-} #sec04 {
-    padding: 4rem 0;
-} #sec03 {
+} #sec03, #sec04 {
     padding: 5rem 0;
 }
 
@@ -139,7 +153,7 @@ section article {
     width: 100%;
 } #sec02 {
     background: var(--c01);
-    padding: 4vw 0;
+    padding: 3.8vw 0;
     color: var(--c03);
     display: flex;
     flex-flow: row wrap;
@@ -193,7 +207,7 @@ section article {
 } #sec03 h2 {
     font-size: clamp(2rem, calc(40vw - 7rem), 2.7rem);
     margin: 1rem 0;
-} #sec03 h3, #sec04 #flex02 p {
+} #sec03 h3, #sec04 #flex02 h3 {
     font-size: 1rem;
     line-height: 1.5rem;
     margin: 1rem 0;
@@ -210,9 +224,9 @@ section article {
 
 h1 {
     font-size: clamp(1.2rem, 8vw, 3.2rem);
-    line-height: clamp(1.2rem, 10vw, 4rem);
+    line-height: clamp(1.2rem, 11vw, 4rem);
     font-weight: 900;
-    max-width: 35rem;
+    max-width: 34rem;
 }
 
 .bt_flex {
@@ -221,11 +235,9 @@ h1 {
     flex-flow: row wrap;
 } .bt_flex > div {
     width: 100%;
-}  .bt_flex > div:first-child {
-    margin-right: 2vw;
 }
-
 .a1 {
+    height: clamp(5.5rem, 33vw, 6rem);
     position: relative;
     width: 100%;
     font-weight: 900;
@@ -242,6 +254,7 @@ h1 {
     border-bottom: 0.4rem solid rgba(255,255,255,0.2);
     box-sizing: border-box;
     transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1rem;
 } .a1 svg {
     width: clamp(3rem, calc(22vw - 2rem), 3.6rem);
     margin: 0 clamp(1rem, 5vw, 1.5rem) 0 0;
@@ -251,6 +264,7 @@ h1 {
     line-height: clamp(1.3rem, 7vw, 1.5rem);
     width: 70%;
     position: relative;
+    cursor: pointer;
 } .a1.servicos  {
     font-weight: 100;
 } .a1:hover {
@@ -264,7 +278,6 @@ h1 {
     overflow: hidden;
     transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(2px);
-    margin: 0 0 1rem 0;
     background: rgba(0,0,0,0.05);
 }
 
@@ -274,7 +287,7 @@ h1 {
     justify-content: center;
     box-sizing: border-box;
     flex: none;
-    font-size: 0.9rem;
+    font-size: 0.98rem;
     letter-spacing: 0.04rem;
     width: 100%;
     padding: 1rem 0;
@@ -442,9 +455,11 @@ form {
     margin: 0.3rem 0 0.9rem 0;
     color: var(--c01);
     font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
-    backdrop-filter: blur(3px);
-    border: 0.15rem solid var(--c01);
+    backdrop-filter: blur(2px);
+    border: none;
     border-radius: 0.2rem;
+    background-color: rgba(255,255,255,0.1);
+    transition: background-color 0.2s ease;
 } label {
     font-size: clamp(0.9rem, calc(6vw - 0.4rem), 1rem);
     display: flex;
@@ -469,9 +484,11 @@ form {
     cursor: pointer;
 }
 
-input:focus, textarea:focus {
+input:hover, textarea:hover {
+    background-color: rgba(255,255,255,0.12);
+} input:focus, textarea:focus {
     outline:none;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15);
 }
 
 #sec02 article a:first-of-type {
@@ -526,7 +543,7 @@ footer {
     margin: 0 auto;
 } #politicas_venda h4 {
     color: var(--c03);
-    font-size: clamp(1.4rem, calc(10vw - 0.5rem), 2rem);
+    font-size: clamp(1.2rem, calc(9vw - 0.5rem), 1.3rem);
     margin: 2rem 0 0.6rem 0;
 } #politicas_venda p {
     color: var(--c02);
@@ -536,7 +553,7 @@ footer {
 }
 
 .ndsajndsa9adsnadsj, .nsdaosnas9uadsn, .st2 {
-    animation: stroke01 0.5s linear infinite;
+    animation: stroke01 0.6s linear infinite;
 }
 
 @keyframes stroke01 {
@@ -547,6 +564,18 @@ footer {
     }
 }
 
+small {
+    display: inline-block;
+    line-height: 1.6rem;
+    background: var(--c01);
+    color: var(--c03);
+    text-align: center;
+    font-weight: 900;
+    border-radius: 0.3rem;
+    margin: 0.3rem 0 0 0;
+    padding: 0.05rem 0.6rem;
+    font-size: clamp(0.8rem, calc(5vw - 0.4rem), 0.85rem);
+}
 
 
 
@@ -596,6 +625,10 @@ footer {
 @media (min-width:100vh) {
 
 
+    .bt_flex > div:first-child {
+        margin-right: 2vw;
+    }    
+
     section article {
         margin:0;
     }
@@ -608,17 +641,48 @@ footer {
         left: 8vw;
     }
 
-    #planilha {
+    #planilha_ctnr {
+        box-shadow: 1rem 0 5rem -2rem black;
         position: absolute;
         right: 0;
         top: 4rem;
         bottom: -1rem;
         width: clamp(0rem, calc(104vw - 44rem), 70rem);
-        background-image: url(assets/print.jpg);
-        background-size: cover;
-        box-shadow: 1rem 0 5rem -2rem black;
         transform: perspective(500px) rotate3d(0, -1, 0, 16deg);
     }
+    .planilha {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+    } .planilha:nth-of-type(1) {
+        background-image: url(assets/print.jpg);
+        opacity: 1;
+    } .planilha:nth-of-type(2) {
+        background-image: url(assets/print1.jpg);
+        animation: planilhashow 5s 5s ease infinite alternate;
+    } .planilha:nth-of-type(3) {
+        background-image: url(assets/print2.jpg);
+        animation: planilhashow 5s 10s ease infinite alternate;
+    } .planilha:nth-of-type(4) {
+        background-image: url(assets/print3.jpg);
+        animation: planilhashow 5s 15s ease infinite alternate;
+    } .planilha:nth-of-type(5) {
+        background-image: url(assets/print4.jpg);
+        animation: planilhashow 5s 20s ease infinite alternate;
+    }
+
+    
+    @keyframes planilhashow {
+        0% {
+            opacity: 0;
+        } 100% {
+            opacity: 1;
+        }
+    }
+
+
 
     #flex02 {
         display: flex;
@@ -628,8 +692,8 @@ footer {
     } #flex02 > div {
         width: clamp(20rem, 40vw, 40rem);
     } #flex02 > div:first-child {
-        width: clamp(24rem, 41vw, 45rem);
-        margin: 0 8vw;
+        width: clamp(24rem, 50vw, 42rem);
+        margin: 0 calc(17vw - 11rem) 0 8vw;
     }
 
     form {

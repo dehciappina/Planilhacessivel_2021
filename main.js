@@ -1,6 +1,20 @@
 const loadBg = document.querySelector('#loading');
 const rects = document.querySelectorAll('#loading rect');
 
+document.onreadystatechange = function () {
+    if (document.readyState == "interactive" || document.readyState == "complete") {
+            loadBg.style.opacity = 0;
+            loadBg.style.visibility = 'hidden';
+
+            setTimeout(() => {
+                loadBg.style.display = 'none';
+            }, 500);
+        
+    }
+  }
+
+
+
 const hamburger = document.querySelector('#hamburger');
 const hambCtnr = document.querySelector('#hamb_ctnr');
 const hamburgerDiv = document.querySelector('#hamburger > div')
@@ -81,26 +95,4 @@ politicaBt.addEventListener('click', function() {
 
 
 
-
-document.onreadystatechange = function () {
-    if (document.readyState == "interactive" || document.readyState == "complete") {
-  
-
-        // setTimeout(() => {
-        //     loadBg.style.opacity = 0;
-        //     loadBg.style.visibility = 'hidden';
-
-        //     setTimeout(() => {
-        //         loadBg.style.display = 'none';
-        //     }, 500);
-
-        // }, 900);
-  
-        // for(i = 0; i < rects.length; i++) {
-        //     rects[i].style.transform = "translateY(-100rem)"
-        //     rects[i].style.animation = "none"
-        // }
-        
-    }
-  }
 
