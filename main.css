@@ -11,17 +11,22 @@
 .logo_intro {
     transform: scale(0.9);
     transform-origin: center;
-    animation: intro_loading 0.9s linear forwards;
+    animation: intro_loading 1.5s ease-in forwards, intro_loading2 1.5s ease forwards;
     opacity: 0;
 } @keyframes intro_loading {
     0% {
         opacity: 0;
-        /* transform: scale(0.9); */
     } 100% {
         opacity: 1;
-        /* transform: scale(1); */
+    }
+} @keyframes intro_loading2 {
+    0% {
+        transform: scale(0.9);
+    } 100% {
+        transform: scale(1);
     }
 }
+
 
 html {
     font-size: clamp(16px, 1vw, 20px);
@@ -145,8 +150,8 @@ section article {
 #sec01 {
     padding: clamp(2rem, 26vw, 8rem) 0 3rem 0;
     position: relative;
-} #sec03, #sec04 {
-    padding: 5rem 0;
+} #sec04 {
+    padding: clamp(1rem, 6vw, 5rem) 0;
 }
 
 #sec01, #sec03 {
@@ -173,7 +178,7 @@ section article {
     margin: 1.5rem 0 0.8rem 0;
 }#sec04 h2  {
     font-size: clamp(1.2rem, 10vw, 3.4rem);
-    margin: 0 0 0.8rem 0;
+    margin: 0 0 1.5rem 0;
     color: var(--c01);
     font-weight: 900;
 }  #sec02 p {
@@ -208,8 +213,8 @@ section article {
     font-size: clamp(2rem, calc(40vw - 7rem), 2.7rem);
     margin: 1rem 0;
 } #sec03 h3, #sec04 #flex02 h3 {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+    line-height: clamp(1.3rem, 5vw, 1.6rem);
     margin: 1rem 0;
     font-weight: 100;
 } .a2:hover {
@@ -226,7 +231,7 @@ h1 {
     font-size: clamp(1.2rem, 8vw, 3.2rem);
     line-height: clamp(1.2rem, 11vw, 4rem);
     font-weight: 900;
-    max-width: 34rem;
+    max-width: 38rem;
 }
 
 .bt_flex {
@@ -549,7 +554,6 @@ footer {
     color: var(--c02);
     font-size: clamp(0.9rem, 4vw, 0.95rem);
     line-height: clamp(0.9rem, 6vw, 1.5rem);
-
 }
 
 .ndsajndsa9adsnadsj, .nsdaosnas9uadsn, .st2 {
@@ -566,20 +570,25 @@ footer {
 
 small {
     display: inline-block;
-    line-height: 1.6rem;
+    line-height: 1.4rem;
     background: var(--c01);
     color: var(--c03);
     text-align: center;
     font-weight: 900;
-    border-radius: 0.3rem;
-    margin: 0.3rem 0 0 0;
+    border-radius: 0.2rem;
+    margin: 0.4rem 0 0 0;
     padding: 0.05rem 0.6rem;
     font-size: clamp(0.8rem, calc(5vw - 0.4rem), 0.85rem);
 }
 
 
 
-
+::selection, .span01 {
+    color: var(--c03);
+    background: #eee;
+} .span01 {
+    padding: 0 0.9rem;
+}
 
 
 
@@ -714,7 +723,7 @@ small {
     }
 
     ::-webkit-scrollbar {
-        width: 0.4rem;
+        width: 0.5rem;
       }
       
       /* Track */
