@@ -47,6 +47,7 @@ function toggleHamb() {
     }
 }
 
+const goUp = document.querySelector('#go_up')
 
 hamburger.addEventListener('click', function() {
     toggleHamb()
@@ -56,6 +57,16 @@ document.body.onscroll = function() {
         toggleHamb()
     } else if(showingPoliticas == true) {
         togglePoliticas()
+    }
+
+    if(window.pageYOffset > (document.body.offsetHeight /2)) {
+        goUp.style.opacity = 1;
+        goUp.style.visibility = 'visible';
+        goUp.style.transform = 'translateX(0)';
+    } else {
+        goUp.style.opacity = 0;
+        goUp.style.visibility = 'hidden';
+        goUp.style.transform = 'translateX(2rem)';
     }
 }
 
